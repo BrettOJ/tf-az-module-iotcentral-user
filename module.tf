@@ -1,8 +1,8 @@
 resource "iotcentral_user" "crete_user" {
   email = var.email
-  roles = [ 
+  roles = [
     {
-      role = var.role
+      role         = var.role
       organization = var.organization
     }
   ]

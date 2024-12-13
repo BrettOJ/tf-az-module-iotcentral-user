@@ -36,7 +36,7 @@ module "azurerm_iotcentral_application" {
 }
 
 module "azure_iotcentral_organization_parent" {
-  source                        = "git::https://github.com/BrettOJ/tf-az-module-azure-iot-central?ref=main"
+  source                    = "git::https://github.com/BrettOJ/tf-az-module-azure-iot-central?ref=main"
   iotcentral_application_id = module.azurerm_iotcentral_application.iotc_app_output.id
   organization_id           = "boj-iot-central-org"
   display_name              = "boj-iot-central-org-parent"
@@ -46,10 +46,10 @@ module "azure_iotcentral_organization_parent" {
 
 
 module "iotcentral_user" {
-    source = "git::https://github.com/BrettOJ/tf-az-module-iotcentral-user?ref=main"
-    email = var.email
-    role = var.role
-    organization = module.azure_iotcentral_organization_parent.iotc_org_output.id
+  source       = "git::https://github.com/BrettOJ/tf-az-module-iotcentral-user?ref=main"
+  email        = var.email
+  role         = var.role
+  organization = module.azure_iotcentral_organization_parent.iotc_org_output.id
 }
 
 
